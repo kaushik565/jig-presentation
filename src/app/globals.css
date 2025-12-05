@@ -1,0 +1,453 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+    color: #374151;
+    background-color: #ffffff;
+    line-height: 1.6;
+}
+
+
+/* Section Transitions */
+
+section {
+    animation: fadeIn 0.6s ease-in-out forwards;
+    opacity: 1;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes slideInLeft {
+    from {
+        opacity: 0;
+        transform: translateX(-30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+@keyframes slideInUp {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.animate-on-scroll {
+    opacity: 0;
+    animation: fadeIn 0.8s ease-in-out forwards;
+}
+
+
+/* Professional Typography */
+
+h1 {
+    @apply text-4xl font-bold tracking-tight mb-6 text-black;
+    transition: all 300ms ease-out;
+}
+
+h1:hover {
+    transform: scale(1.02);
+    color: #dc2626;
+}
+
+h2 {
+    @apply text-3xl font-bold tracking-tight mb-4 text-black;
+    transition: all 300ms ease-out;
+}
+
+h2:hover {
+    transform: scale(1.02);
+    color: #dc2626;
+}
+
+h3 {
+    @apply text-2xl font-bold tracking-tight mb-3 text-black;
+    transition: all 300ms ease-out;
+}
+
+h3:hover {
+    transform: scale(1.02);
+    color: #dc2626;
+}
+
+p {
+    @apply text-base leading-relaxed text-gray-700;
+}
+
+
+/* Link Consistency */
+
+a {
+    @apply text-red-600 font-medium transition-all duration-300;
+    text-decoration: none;
+    position: relative;
+}
+
+a::after {
+    content: '';
+    position: absolute;
+    bottom: -2px;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background-color: #dc2626;
+    transition: width 300ms ease-out;
+}
+
+a:hover::after {
+    width: 100%;
+}
+
+a:hover {
+    color: #b91c1c;
+}
+
+
+/* External links indicator */
+
+a[target="_blank"]::before {
+    content: '↗ ';
+    margin-right: 0.25rem;
+}
+
+
+/* Enhanced Grid & Box Styling */
+
+.box-highlight {
+    @apply bg-gradient-to-br from-white to-gray-50 border border-gray-200 rounded-lg p-6 transition-all duration-300 cursor-pointer;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.07);
+}
+
+.box-highlight:hover {
+    transform: translateY(-4px);
+    @apply shadow-lg border-red-300;
+    box-shadow: 0 10px 20px rgba(220, 38, 38, 0.15);
+}
+
+.box-accent {
+    @apply bg-red-50 border-l-4 border-red-600 rounded-r-lg p-6 transition-all duration-300;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.06);
+}
+
+.box-accent:hover {
+    transform: translateY(-2px);
+    @apply shadow-md;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+}
+
+.box-success {
+    @apply bg-green-50 border-l-4 border-green-600 rounded-r-lg p-6 transition-all duration-300;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.06);
+}
+
+.box-success:hover {
+    transform: translateY(-2px);
+    @apply shadow-md;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+}
+
+
+/* Metric Cards with Subtle Animation */
+
+.metric-card {
+    @apply text-center p-6 bg-white rounded-lg border border-gray-200 transition-all duration-300 cursor-pointer;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.07);
+}
+
+.metric-card:hover {
+    transform: translateY(-6px);
+    @apply shadow-xl bg-white;
+    box-shadow: 0 12px 24px rgba(220, 38, 38, 0.12);
+}
+
+.metric-value {
+    @apply text-4xl font-bold mb-2;
+}
+
+.metric-label {
+    @apply text-gray-700 font-semibold text-sm;
+}
+
+
+/* Color-coded Metrics */
+
+.metric-critical {
+    @apply text-red-600;
+}
+
+.metric-success {
+    @apply text-green-600;
+}
+
+.metric-neutral {
+    @apply text-black;
+}
+
+
+/* Numbered Steps */
+
+.step-number {
+    @apply inline-flex items-center justify-center w-12 h-12 rounded-full bg-red-600 text-white font-bold text-lg;
+}
+
+
+/* Dividers with Elegance */
+
+.divider-subtle {
+    @apply border-t border-gray-200;
+}
+
+.divider-accent {
+    @apply h-1 w-24 bg-red-600 mx-auto rounded-full;
+}
+
+
+/* List Enhancement */
+
+.list-check {
+    @apply space-y-3;
+}
+
+.list-check li {
+    @apply flex items-start;
+}
+
+.list-check li::before {
+    @apply content-['✓'] text-red-600 font-bold mr-3 mt-0.5;
+}
+
+
+/* Badge Styles */
+
+.badge {
+    @apply inline-block px-3 py-1 rounded-full text-sm font-medium bg-red-100 text-red-700;
+}
+
+.badge-success {
+    @apply bg-green-100 text-green-700;
+}
+
+
+/* Subtle Shadows */
+
+.shadow-subtle {
+    @apply shadow-sm;
+}
+
+.shadow-card {
+    @apply shadow-md transition-shadow duration-300;
+}
+
+.shadow-card:hover {
+    @apply shadow-lg;
+}
+
+
+/* Spacing Utilities */
+
+.section-spacing {
+    @apply py-16 px-6;
+}
+
+.content-max {
+    @apply max-w-5xl mx-auto;
+}
+
+
+/* Sticky Navigation */
+
+.sticky-nav {
+    position: fixed;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 40;
+    display: none;
+    flex-direction: column;
+    gap: 1rem;
+    padding-left: 1.5rem;
+}
+
+@media (min-width: 1024px) {
+    .sticky-nav {
+        display: flex;
+    }
+}
+
+.nav-dot {
+    width: 0.75rem;
+    height: 0.75rem;
+    border-radius: 9999px;
+    background-color: #d1d5db;
+    cursor: pointer;
+    transition: all 300ms;
+}
+
+.nav-dot:hover {
+    background-color: #dc2626;
+    transform: scale(1.25);
+}
+
+.nav-dot.active {
+    background-color: #dc2626;
+    transform: scale(1.25);
+}
+
+
+/* Back to Top Button */
+
+.back-to-top {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    z-index: 40;
+    background-color: #dc2626;
+    color: white;
+    padding: 0.75rem;
+    border-radius: 9999px;
+    box-shadow: 0 10px 25px rgba(220, 38, 38, 0.3);
+    transition: all 400ms cubic-bezier(0.34, 1.56, 0.64, 1);
+    opacity: 0;
+    pointer-events: none;
+    cursor: pointer;
+}
+
+.back-to-top:hover {
+    background-color: #b91c1c;
+    transform: translateY(-4px);
+    box-shadow: 0 15px 35px rgba(220, 38, 38, 0.4);
+}
+
+.back-to-top.show {
+    opacity: 1;
+    pointer-events: auto;
+    animation: bounceIn 600ms cubic-bezier(0.34, 1.56, 0.64, 1);
+}
+
+@keyframes bounceIn {
+    0% {
+        opacity: 0;
+        transform: translateY(20px) scale(0.8);
+    }
+    50% {
+        transform: translateY(-8px) scale(1.1);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+
+/* Section Alternating Backgrounds */
+
+section:nth-child(even) {
+    background-color: #f9fafb;
+}
+
+section:nth-child(odd) {
+    background-color: white;
+}
+
+
+/* Section Dividers */
+
+.section-divider {
+    height: 0.125rem;
+    background: linear-gradient(to right, transparent, #d1d5db, transparent);
+    margin: 0;
+}
+
+
+/* Mobile Responsive Improvements */
+
+@media (max-width: 768px) {
+    section {
+        padding: 2.5rem 1rem;
+    }
+    h1 {
+        font-size: 1.875rem;
+    }
+    h2 {
+        font-size: 1.5rem;
+    }
+    h3 {
+        font-size: 1.25rem;
+    }
+    .md\:grid-cols-2 {
+        grid-template-columns: repeat(1, minmax(0, 1fr));
+    }
+    .md\:grid-cols-3 {
+        grid-template-columns: repeat(1, minmax(0, 1fr));
+    }
+    .md\:grid-cols-4 {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+    .md\:grid-cols-5 {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+    .metric-value {
+        font-size: 1.875rem;
+    }
+    .text-5xl {
+        font-size: 3rem;
+    }
+    .text-4xl {
+        font-size: 2.25rem;
+    }
+}
+
+@media (max-width: 640px) {
+    section {
+        padding: 2rem 0.75rem;
+    }
+    h1 {
+        font-size: 1.5rem;
+    }
+    h2 {
+        font-size: 1.25rem;
+    }
+    .grid-cols-2 {
+        grid-template-columns: repeat(1, minmax(0, 1fr));
+    }
+    .md\:grid-cols-4 {
+        grid-template-columns: repeat(1, minmax(0, 1fr));
+    }
+    .md\:grid-cols-5 {
+        grid-template-columns: repeat(1, minmax(0, 1fr));
+        gap: 1rem;
+    }
+    .metric-card {
+        padding: 1rem;
+    }
+    .metric-value {
+        font-size: 1.5rem;
+    }
+}
